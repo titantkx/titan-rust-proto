@@ -125,6 +125,10 @@ fn compile_protos(
     }: CompileArgs,
 ) {
     info!("Compiling proto files... {:#?}", proto_path);
+    // remove tmp dir if it exists
+    if tmp_path.exists() {
+        remove_dir_all(tmp_path).unwrap_or_default();
+    }
 
     // create directories for temporary build dirs
     fs::create_dir_all(tmp_path)
