@@ -1,0 +1,20 @@
+[package]
+edition = "2021"
+name = "titan-proto-titan"
+version = "0.1.0"
+
+[dependencies]
+cosmos-sdk-proto = {package = "cosmos-sdk-proto-titan", path = "../cosmos_sdk_proto"}
+prost = {workspace = true}
+prost-types = {workspace = true}
+
+# Optional dependencies
+tonic = {workspace = true, optional = true}
+
+[features]
+default = ["grpc"]
+grpc = ["tonic"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

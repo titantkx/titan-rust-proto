@@ -9,12 +9,13 @@ pub const EXCLUDED_PROTO_PACKAGES: &[&str] = &[
     "gogoproto",
     "google",
     "amino",
+    "cosmwasm",
 ];
 
-pub fn wasmd_main(root: String, tmp_dir: &str, out_dir: &str) {
+pub fn titan_main(root: String, tmp_dir: &str, out_dir: &str) {
     let regex_replacements = vec![];
 
-    compile_wasmd_protos_and_services(
+    compile_titan_protos_and_services(
         Path::new(&root),
         Path::new(tmp_dir),
         Path::new(out_dir),
@@ -22,14 +23,14 @@ pub fn wasmd_main(root: String, tmp_dir: &str, out_dir: &str) {
     );
 }
 
-fn compile_wasmd_protos_and_services(
+fn compile_titan_protos_and_services(
     root: &Path,
     tmp_path: &Path,
     out_path: &Path,
     regex_replacements: &[RegexReplace],
 ) {
     info!(
-        "Compiling wasm .proto files to Rust into '{}'...",
+        "Compiling titan .proto files to Rust into '{}'...",
         out_path.display(),
     );
 

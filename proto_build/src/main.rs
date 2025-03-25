@@ -19,10 +19,12 @@ use std::{
 use cosmos_sdk::{cosmos_main, RootDirs};
 use env_logger::Env;
 use regex::Regex;
+use titan::titan_main;
 use walkdir::WalkDir;
 use wasmd::wasmd_main;
 
 pub mod cosmos_sdk;
+pub mod titan;
 pub mod wasmd;
 
 #[macro_use]
@@ -41,10 +43,9 @@ pub const GRPC_CLIENT_ATTRIBUTES: &[&str] = &[
 pub const COSMOS_SDK_ROOT: &str = "../cosmos-sdk/";
 pub const TENDERMINT_ROOT: &str = "../tendermint/";
 pub const IBC_ROOT: &str = "../ibc-go/";
-
 pub const WASMD_ROOT: &str = "../wasmd/";
-
 pub const GRAVITY_ROOT: &str = "../gravity/";
+pub const TITAN_ROOT: &str = "../titan/";
 
 /// A temporary directory for proto building
 pub const TMP_PATH: &str = "/tmp/proto/";
@@ -52,6 +53,7 @@ pub const TMP_PATH: &str = "/tmp/proto/";
 pub const COSMOS_OUT_PATH: &str = "../cosmos_sdk_proto/src/prost/";
 pub const GRAVITY_OUT_PATH: &str = "../gravity_proto/src/prost/";
 pub const WASMD_OUT_PATH: &str = "../wasmd_proto/src/prost/";
+pub const TITAN_OUT_PATH: &str = "../titan_proto/src/prost/";
 
 #[derive(Clone)]
 pub struct RegexReplace {
@@ -96,6 +98,8 @@ fn main() {
     );
 
     wasmd_main(WASMD_ROOT.to_string(), TMP_PATH, WASMD_OUT_PATH);
+
+    titan_main(TITAN_ROOT.to_string(), TMP_PATH, TITAN_OUT_PATH);
 }
 
 struct CompileArgs<'a> {
