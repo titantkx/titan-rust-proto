@@ -966,7 +966,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "titan-proto-titan"
+name = "titan-proto"
 version = "0.1.0"
 dependencies = [
  "cosmos-sdk-proto-titan",
