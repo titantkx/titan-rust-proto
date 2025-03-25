@@ -5,5 +5,8 @@ url = https://github.com/titantkx/cosmos-sdk
 path = ibc-go
 url = https://github.com/cosmos/ibc-go
 [submodule "wasmd"]
-	path = wasmd
-	url = https://github.com/CosmWasm/wasmd.git
+path = wasmd
+url = https://github.com/CosmWasm/wasmd.git
+[submodule "titan"]
+	path = titan
+	url = https://github.com/titantkx/titan.git
